@@ -1,53 +1,22 @@
-# price_recommendation_for_used_cars---used_car_application
-A linear regression model for predicting used car prices based on their model, production year, color, and etc.
-# Car Price Prediction
+# Used car price prediction
 
-## Project Overview
+Build a linear regression model to recommend used-car prices from vehicle attributes. The notebook sets a marketing target that 80% of predictions should fall within ±15% of the actual price.
 
-This project analyses vehicle characteristics and develops regression models to predict car prices.
+## Data
 
-## Objectives
+`cs_04.csv` includes city, brand, production year, colour, mileage, body/engine/chassis condition, remaining insurance, gearbox, fuel type, and price.
 
-- Clean and prepare the dataset
-- Explore relationships between vehicle features and price
-- Build regression models
-- Evaluate model performance
-- Identify the most important predictors of price
+## Method
 
-## Tools and Technologies
+`Linear-Regression.ipynb` cleans the data and fits linear models in Python (pandas, scikit-learn / statsmodels). Variants include all features, a Box-Cox transform of the target, and a selected-feature model. Performance is reported with RMSE, MAPE, MAE, and R-squared.
 
-- Python
-- Jupyter Notebook
-- Pandas
-- NumPy
-- Matplotlib
-- Scikit-learn
+## Findings
 
-## Project Structure
+From the notebook comparison, a linear model on all features had MAPE 12% and R-squared 0.76. After a Box-Cox transform, MAPE improved to about 9% and R-squared to 0.914. Selecting a subset of features after Box-Cox gave essentially the same MAPE (9%) and R-squared (0.914). These figures are from the committed notebook outputs.
 
-- `car_price_analysis.ipynb`: Main analysis notebook
-- `data/`: Dataset or sample data
-- `images/`: Charts and model results
+## How to run
 
-
-## Methodology
-
-1. Data cleaning
-2. Exploratory data analysis
-3. Feature engineering
-4. Train-test split
-5. Model training
-6. Model evaluation
-
-## Model Evaluation
-
-The models are evaluated using:
-
-- RMSE
-- MAE
-- R-squared
-
-## Author
-
-Amir Mehdi Mostofi  
-Master of Business Analytics
+```bash
+pip install -r requirements.txt
+jupyter notebook Linear-Regression.ipynb
+```
